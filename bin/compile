@@ -31,13 +31,13 @@ source $LP_DIR/export
 
 echo "-----> Install ImageMagick"
 
-IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-6.9.11-0}"
-LIBWEBP_VERSION="1.0.3"
+IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-7.1.0-55}"
+LIBWEBP_VERSION="1.2.4"
 
 IMAGE_MAGICK_INSTALL_DIR="$VENDOR_DIR/imagemagick"
 IMAGE_MAGICK_CACHE_FILE="$CACHE_DIR/imagemagick-${IMAGE_MAGICK_VERSION}-${LIBWEBP_VERSION}-compiled.tar.gz"
 
-IMAGICK_VERSION="${IMAGICK_VERSION:-3.4.3}"
+IMAGICK_VERSION="${IMAGICK_VERSION:-3.7.0}"
 IMAGICK_INSTALL_DIR="$VENDOR_DIR/imagick"
 PHP_EXT_DIR=$(php-config --extension-dir)
 IMAGICK_INSTALL_FILE="$PHP_EXT_DIR/imagick.so"
@@ -107,7 +107,7 @@ ACTUAL_INSTALL_PATH="$HOME/vendor/imagemagick"
 mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$ACTUAL_INSTALL_PATH/bin:\$PATH" >> $PROFILE_PATH
 echo "export LD_LIBRARY_PATH=$ACTUAL_INSTALL_PATH/lib:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
-echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH/etc/ImageMagick-6" >> $PROFILE_PATH
+echo "export MAGICK_CONFIGURE_PATH=$ACTUAL_INSTALL_PATH/etc/ImageMagick-7" >> $PROFILE_PATH
 
 echo "-----> Install Imagick"
 [ -f $IMAGICK_INSTALL_DIR ] && mkdir $IMAGICK_INSTALL_DIR
@@ -117,7 +117,7 @@ if [ ! -f $IMAGICK_CACHE_FILE ]; then
   IMAGICK_FILE="Imagick-$IMAGICK_VERSION.tgz"
   IMAGICK_DIR="imagick-$IMAGICK_VERSION"
   # SSL cert used on imagemagick not recognized by heroku.
-  # pecl.php.net/get/imagick/3.4.1
+  # pecl.php.net/get/imagick/3.7.0
   IMAGICK_URL="pecl.php.net/get/imagick/$IMAGICK_VERSION"
 
   echo "-----> Downloading Imagick from $IMAGICK_URL"
