@@ -31,7 +31,7 @@ source $LP_DIR/export
 
 echo "-----> Install ImageMagick"
 
-IMAGE_MAGICK_VERSION="${IMAGE_MAGICK_VERSION:-7.1.0-55}"
+IMAGE_MAGICK_VERSION="7.1.0-55"
 LIBWEBP_VERSION="1.2.4"
 
 IMAGE_MAGICK_INSTALL_DIR="$VENDOR_DIR/imagemagick"
@@ -59,7 +59,7 @@ if [ ! -f $IMAGE_MAGICK_CACHE_FILE ]; then
   rm -rf $LIBWEBP_DIR
 
   # install imagemagick
-  IMAGE_MAGICK_FILE="ImageMagick-$IMAGE_MAGICK_VERSION.tar.gz"
+  IMAGE_MAGICK_FILE="$IMAGE_MAGICK_VERSION.tar.gz"
   IMAGE_MAGICK_DIR="ImageMagick-$IMAGE_MAGICK_VERSION"
   # SSL cert used on imagemagick not recognized by heroku.
   IMAGE_MAGICK_URL="https://github.com/ImageMagick/ImageMagick/archive/refs/tags/$IMAGE_MAGICK_FILE"
